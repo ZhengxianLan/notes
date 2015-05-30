@@ -26,6 +26,11 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'othree/html5.vim'
 Bundle 'junegunn/goyo.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Raimondi/delimitMate'
+Bundle 'godlygeek/tabular'
 
 " Close backup
 set nobackup
@@ -48,7 +53,14 @@ set autoindent
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·
 
-
+set wildignore+=tags
+set wildignore+=*/tmp/*
+set wildignore+=*/vendor/*
+set wildignore+=*/spec/vcr/*
+set wildignore+=*/public/*
+set wildignore+=*/chef/*
+set wildignore+=*/coverage/*
+set wildignore+=*.png,*.jpg,*.otf,*.woff,*.jpeg,*.orig
 " Tab
 set tabstop=2
 set shiftwidth=2
@@ -75,10 +87,10 @@ endfun
 autocmd BufWritePre * call StripTrailingWhitespace()
 
 " Navigator split window
-nmap <Up> <c-w>k
-nmap <Down> <c-w>j
-nmap <Right> <c-w>l
-nmap <Left> <c-w>h
+nmap <c-k> <c-w>k
+nmap <c-j> <c-w>j
+nmap <c-l> <c-w>l
+nmap <c-h> <c-w>h
 
 " Ruby complete
 let g:rubycomplete_buffer_loading = 1
@@ -128,7 +140,7 @@ nnoremap <leader>tr :%s/\s\+$//g<CR><C-o>
 nnoremap <leader>x  :xa!<cr>
 nnoremap <leader>w  :w!<cr>
 nnoremap <leader>su :w !sudo tee %>/dev/null <cr>
-nnoremap <leader>q :qa!<cr>
+nnoremap <leader>q :q!<cr>
 
 
 map <F2> :NERDTreeToggle<CR>
@@ -141,8 +153,6 @@ set fileencodings=ucs-bom,utf-8,chinese,cp936
 "vim的菜单乱码解决
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"vim提示信息乱码的解决
-language messages zh_CN.utf-8
 
 "vertical split open new window on right
 set splitright
@@ -151,3 +161,55 @@ set fillchars=diff:⣿,vert:│  "split and diff splitchar
 " Change Working Directory to that of the current file
   cmap cwd lcd %:p:h
   cmap cd. lcd %:p:h
+" Visual shifting (does not exit Visual mode)
+  vnoremap < <gv
+  vnoremap > >gv
+
+map <C-e> <plug>NERDTreeTabsToggle<CR>
+map <leader>e :NERDTreeFind<CR>
+nmap <leader>nt :NERDTreeFind<CR>
+
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+"选中一段文字并全文搜索这段文字
+vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+"Auto closing of quotes,parenthesis,brackets
+let delimitMate_expand_cr = 1
+
+
+
+" tablarize
+inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+" omini-completion
+ let g:rubycomplete_buffer_loading = 1
+ let g:rubycomplete_classes_in_global = 1
+ let g:rubycomplete_rails = 1
+
+" omini syntax
+if has("autocmd") && exists("+omnifunc")
+  autocmd Filetype *
+        \	if &omnifunc == "" |
+        \		setlocal omnifunc=syntaxcomplete#Complete |
+        \	endif
+endif
+
+" omini-complete
+imap <c-space> <c-x><c-o>
