@@ -1,9 +1,10 @@
 #!/bin/bash
 #Stat the number of different file type of target Directory
-#author lan
+#author lanzhengxian
 #time 2014-06-20 15:16
-#1: function 定义需要使用之前，貌似是脚本语言的通用原则
-#2: 变量类型的自动转换。默认会首先尝试转为numberic.若需强制转string==>expr "".具体参考man awk
+#坑1: function 定义需要使用之前，貌似是脚本语言的通用原则
+#坑2: 变量类型的自动转换。默认会首先尝试转为numberic.若需强制转string==>expr "".具体参考man awk
+# for source code : sudo apt-get install cloc;cloc .
 
 start=`date +'%s'`
 [ -z  "$1" ]&& target="."
