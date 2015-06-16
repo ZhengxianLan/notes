@@ -86,9 +86,6 @@ alias ll='ls -la'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
-#alias -s html=vi  #在命令行直接输入后缀为html的文件名,会在vi中打开
-#alias -s rb=vi   #在命令行直接输入ruby文件,会在vi中打开
-#alias -s py=vi    #在命令行直接输入python文件,会用vim中打开,以下类似
 alias -s js=vi
 alias -s c=vi
 alias -s java=vi
@@ -107,5 +104,8 @@ if [ -d "${RBENV_ROOT}" ]; then
         eval "$(rbenv init -)"
 fi
 
-export JAVA_HOME=/home/vagrant/sf/jdk1.7.0_03
+export JAVA_HOME=/home/lan/app/jdk1.7.0_03
 export PATH=$JAVA_HOME/bin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"

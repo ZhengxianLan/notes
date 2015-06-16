@@ -95,7 +95,7 @@ nmap <c-j> <c-w>j
 nmap <c-l> <c-w>l
 nmap <c-h> <c-w>h
 
-set pastetoggle=<F11>
+set pastetoggle=<F12>
 
 " Ruby complete
 let g:rubycomplete_buffer_loading = 1
