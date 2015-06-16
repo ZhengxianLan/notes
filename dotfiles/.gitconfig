@@ -16,3 +16,6 @@
 	untracked = cyan
 [gui]
 	encoding = UTF-8
+[user]
+	name = lan
+	email = lanzhengxian@gmail.com
