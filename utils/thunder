@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+header='thunder://'
+for str  in $@
+do
+  no_header=`echo $str|sed "s,$header,,g" `
+  dec=`echo $no_header|base64 -d`
+  if test `echo $dec|grep -i ed2k`
+  then
+    echo "$dec"|sed -E "s,(.*)(ed2k.*)(\|[^|]*$),\2,"|tee -a /tmp/thunder_addr.txt
+    echo "get your thunder addr at /tmp/thunder_addr.txt"
+  fi
+done
