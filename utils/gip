@@ -1,0 +1,9 @@
+#!/bin/bash
+cd ~/data/checkgoogleip
+python ~/data/checkgoogleip/checkip.py
+wait
+newip="`head -2 /home/lan/data/checkgoogleip/ip_tmpok.txt|awk '{print $1}'|paste -s -d '|'`"
+echo $newip
+cd ~/app/goagent-goagent-3.2.3-lin/local/
+sed -i "29s/[0-9].*/$newip/" proxy.ini
+sudo bash ./proxy.sh restart
