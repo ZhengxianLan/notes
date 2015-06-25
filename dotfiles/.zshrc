@@ -26,7 +26,7 @@ ZSH_THEME="cloud"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
- ENABLE_CORRECTION="true"
+ #ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -106,6 +106,5 @@ fi
 
 export JAVA_HOME=/home/lan/app/jdk1.7.0_03
 export PATH=$JAVA_HOME/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export http_proxy="http://localhost:8087"
+export https_proxy="http://localhost:8087"

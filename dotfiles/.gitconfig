@@ -19,3 +19,5 @@
 [user]
 	name = lan
 	email = lanzhengxian@gmail.com
+[http]
+	sslVerify = false
