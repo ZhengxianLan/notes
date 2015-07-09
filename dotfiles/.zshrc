@@ -106,5 +106,3 @@ fi
 
 export JAVA_HOME=/home/lan/app/jdk1.7.0_03
 export PATH=$JAVA_HOME/bin:$PATH
-export http_proxy="http://localhost:8087"
-export https_proxy="http://localhost:8087"

@@ -1,7 +1,8 @@
 #!/bin/bash
+# sudo nmap -sS --min-rate 2000 --max-retries 2 -n -T4 -PN -oG gae_443_ip.gnmap  -iL google_ip.txt  -p443 -vv && cat gae_443_ip.gnmap|grep open|awk '{print $2}'|xargs -I ip -P 20 sh -c 'curl -k -m 20 --resolve xxnet-13.appspot.com:443:ip https://xxnet-13.appspot.com/_gh/  |grep -e GoAgent -e Quota -q && echo ip' > tmp.txt
 sudo ls &>/dev/null
 cd ~/data/checkgoogleip
-python ~/data/checkgoogleip/checkip.py &>/dev/null &
+python ~/data/checkgoogleip/checkip.py $@ &>/dev/null &
 wait
 newip="`head -4 /home/lan/data/checkgoogleip/ip_tmpok.txt|awk '{print $1}'|paste -s -d '|'`"
 echo $newip

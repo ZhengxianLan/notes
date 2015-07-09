@@ -1,39 +1,41 @@
 
 
-" git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" BundleInstall
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" PluginInstall
 
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" My Bundles here:
+" My Plugins here:
 
-Bundle 'Align'
-Bundle 'tpope/vim-rails'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'hallison/vim-markdown'
-Bundle 'slim-template/vim-slim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'othree/html5.vim'
-Bundle 'junegunn/goyo.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Raimondi/delimitMate'
-Bundle 'godlygeek/tabular'
+Plugin 'Align'
+Plugin 'tpope/vim-rails'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'hallison/vim-markdown'
+Plugin 'slim-template/vim-slim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'othree/html5.vim'
+Plugin 'junegunn/goyo.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Raimondi/delimitMate'
+Plugin 'godlygeek/tabular'
 " `sudo apt-get install vim-nox` to use neocomplete.vim
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 
 " Close backup
 set nobackup
@@ -50,6 +52,7 @@ set number
 syntax on
 set incsearch
 set wildmenu
+call vundle#end()            " required
 filetype plugin indent on
 set autoindent
 
