@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+require 'pangu'
+
+puts ARGV
+ARGV.each { |fn|
+  content=Pangu.spacing(File.read(fn))
+ File.open(fn,'w+') {|f| f.write(content)}
+}
