@@ -104,5 +104,3 @@ if [ -d "${RBENV_ROOT}" ]; then
         eval "$(rbenv init -)"
 fi
 
-export JAVA_HOME=/home/lan/app/jdk1.7.0_03
-export PATH=$JAVA_HOME/bin:$PATH

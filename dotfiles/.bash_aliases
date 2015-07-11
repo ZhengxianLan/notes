@@ -32,3 +32,5 @@ alias ta='tmux attach -t'
 alias clsh='cat /dev/null > ~/.zsh_history'
 alias bwg="ssh -p '26260' '138.128.192.221'"
 alias youtube-dl='youtube-dl --prefer-ffmpeg '
+alias bejs='bundle exec jekyll serve'
+

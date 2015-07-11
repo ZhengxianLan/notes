@@ -2,5 +2,4 @@
 
 target='.'
 [ -n "$1" ] && target="$1"
-#cd $1 ;du -sh *|sort -hr # this will contain the total disk usage of a dir
 find  "$target" -maxdepth 1 -exec du -hs '{}' \;|sort -hr| less
