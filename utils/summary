@@ -12,10 +12,9 @@ start=`date +'%s'`
 target=`cd "$1";pwd -P`
 find "$target" -type f|
 	awk -F/ '{print $NF}'|
-    awk '{printf("%-20s %10d\n",$0,"wc -l $0"|& getline)}'|
-		 #awk -F. '	{sum++;typeArr[$NF]++}
-				#END{
-					#printf("%-20s %10d\n","total:",sum)
-					#for (ftype in typeArr) printf("%-20s %10d %10.2f%% \n",ftype,typeArr[ftype],typeArr[ftype]/sum*100)
-				#} '|
+	 	awk -F. '	{sum++;typeArr[$NF]++}
+				END{
+					printf("%-20s %10d\n","total:",sum)
+					for (ftype in typeArr) printf("%-20s %10d %10.2f%% \n",ftype,typeArr[ftype],typeArr[ftype]/sum*100)
+				} '|
 			sort -nr -k2|less
