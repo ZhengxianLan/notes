@@ -8,7 +8,7 @@
 re=${1}
 shift
 for i in $@; do
-	nn=`echo ${i}|sed $re`
+	nn=`echo ${i}|sed -r $re`
 	echo "rename ${i} to ${nn}"
 	mv ${i} ${nn}
 done

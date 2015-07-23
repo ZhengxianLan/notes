@@ -98,7 +98,9 @@ nmap <c-j> <c-w>j
 nmap <c-l> <c-w>l
 nmap <c-h> <c-w>h
 
-set pastetoggle=<F12>
+nnoremap <F3> :set invpaste paste?<CR>
+set pastetoggle=<F3>
+set showmode
 
 " Ruby complete
 let g:rubycomplete_buffer_loading = 1

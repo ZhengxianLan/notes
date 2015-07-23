@@ -1,0 +1,4 @@
+#!/bin/bash
+SUBLIME_HOME="/home/$(whoami)/app/sublime_text_3"
+export LD_PRELOAD="$SUBLIME_HOME/libsublime-imfix.so"
+$SUBLIME_HOME/sublime_text $@
