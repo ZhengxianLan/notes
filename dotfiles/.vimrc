@@ -83,11 +83,11 @@ autocmd BufRead,BufNewFile *.html.erb set filetype=eruby.html
 
 " Strip trailing whitespace
 fun! StripTrailingWhitespace()
-    " Don't strip on these filetypes
-    if &ft =~ 'markdown'
-        return
-    endif
-    %s/\s\+$//e
+  " Don't strip on these filetypes
+  if &ft =~ 'markdown'
+    return
+  endif
+  %s/\s\+$//e
 endfun
 
 autocmd BufWritePre * call StripTrailingWhitespace()
@@ -121,11 +121,11 @@ nmap <A-right> :ll<cr>
 
 " Goyo
 function! s:goyo_before()
-    set nonumber
+  set nonumber
 endfunction
 
 function! s:goyo_after()
-    set number
+  set number
 endfunction
 
 let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
@@ -145,6 +145,7 @@ nnoremap <leader>x  :xa!<cr>
 nnoremap <leader>w  :w!<cr>
 nnoremap <leader>su :w !sudo tee %>/dev/null <cr>
 nnoremap <leader>q :q!<cr>
+nnoremap <leader>= gg=G
 
 
 map <F2> :NERDTreeToggle<CR>
@@ -163,11 +164,11 @@ set splitright
 set fillchars=diff:⣿,vert:│  "split and diff splitchar
 
 " Change Working Directory to that of the current file
-  cmap cwd lcd %:p:h
-  cmap cd. lcd %:p:h
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
 " Visual shifting (does not exit Visual mode)
-  vnoremap < <gv
-  vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 map <C-e> <plug>NERDTreeTabsToggle<CR>
 map <leader>e :NERDTreeFind<CR>
@@ -203,9 +204,9 @@ function! s:align()
 endfunction
 
 " omini-completion
- let g:rubycomplete_buffer_loading = 1
- let g:rubycomplete_classes_in_global = 1
- let g:rubycomplete_rails = 1
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
 
 " omini syntax
 if has("autocmd") && exists("+omnifunc")
@@ -252,14 +253,14 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell_hist',
+      \ 'scheme' : $HOME.'/.gosh_completions'
+      \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
@@ -308,11 +309,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
 
 " For snippet_complete marker.
 if has('conceal')
