@@ -30,7 +30,7 @@ alias rsd='rails s -b0.0.0.0 &>/dev/null &'
 alias c='tmux attach -t cli||tmux new -s cli'
 alias ta='tmux attach -t'
 alias clsh='cat /dev/null > ~/.zsh_history'
-alias bwg="ssh -p '27573' '104.224.150.139'"
+alias bwg="ssh -p '27573' '45.78.13.236'"
 alias youtube-dl='youtube-dl --prefer-ffmpeg '
 alias bejs='bundle exec jekyll serve'
-
+alias getggip="nslookup www.google.com|grep Address|awk -F: '{ print $2}'|grep -v '8.8.8.8'"
