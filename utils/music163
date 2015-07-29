@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+# coding: utf-8
+require 'fileutils'
+
+location='/tmp/163/'
+FileUtils::mkdir_p(location) unless File.exist?(location)
+Dir.chdir(location)
+# use burp suite to get curl command content
+curl="$curl"
+`#{curl}|grep -o 'mp3Url":"[^"]*' |sed 's/mp3Url":"//g' |wget -ci -`
+
+Dir.glob("*.mp3").each do |f|
+	fn= `mid3v2 "#{f}"|grep TIT2|sed s'/TIT2=//g'`
+	File.rename("#{f}","#{fn.to_s.strip}.mp3")
+end
+
