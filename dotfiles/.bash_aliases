@@ -34,3 +34,6 @@ alias bwg="ssh -p '27573' '45.78.13.236'"
 alias youtube-dl='youtube-dl --prefer-ffmpeg '
 alias bejs='bundle exec jekyll serve'
 alias getggip="nslookup www.google.com|grep Address|awk -F: '{ print $2}'|grep -v '8.8.8.8'"
+alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
+alias bi=' bundle install'
+alias pc='proxychains '
