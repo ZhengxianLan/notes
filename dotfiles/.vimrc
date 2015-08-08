@@ -47,7 +47,7 @@ set vb t_vb=
 set mouse=a
 
 " Style
-colorscheme desert
+colorscheme elflord
 set number
 syntax on
 set incsearch
@@ -319,3 +319,16 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+" save a file in a directory that does not yet exist
+nmap <Leader>m :call mkdir(expand("%:p:h"), "p")<CR>
+
+" By pressing ctrl + r in the visual mode you will be prompted to enter text
+" to replace with. Press enter and then confirm each change you agree with 'y'
+" or decline with 'n'.
+" see  http://stackoverflow.com/questions/676600/vim-search-and-replace-selected-text
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
+
+" substitute to lower case use \L,uppercase use \U , \u is capitalize
+" & is a handy backreference that refers to the complete text of the match
+":%s/.*/\L&/g
