@@ -30,10 +30,11 @@ alias rsd='rails s -b0.0.0.0 &>/dev/null &'
 alias c='tmux attach -t cli||tmux new -s cli'
 alias ta='tmux attach -t'
 alias clsh='cat /dev/null > ~/.zsh_history'
-alias bwg="ssh -p '27573' '45.78.13.236'"
 alias youtube-dl='youtube-dl --prefer-ffmpeg '
 alias bejs='bundle exec jekyll serve'
 alias getggip="nslookup www.google.com|grep Address|awk -F: '{ print $2}'|grep -v '8.8.8.8'"
 alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias bi=' bundle install'
 alias pc='proxychains '
+alias xp='nohup /usr/lib/virtualbox/VirtualBox --comment xp --startvm 0fad95bf-bc4e-43fe-9518-ea9c8309512c --no-startvm-errormsgbox &>/tmp/xp.log &'
+source ~/.my_aliases

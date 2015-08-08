@@ -4,7 +4,7 @@ sudo ls &>/dev/null
 cd ~/data/checkgoogleip
 python ~/data/checkgoogleip/checkip.py #$@ &>/dev/null &
 wait
-newip="`head -4 /home/lan/data/checkgoogleip/ip_tmpok.txt|awk '{print $1}'|paste -s -d '|'`"
+newip="`head -4 /home/lan/data/repo/checkgoogleip/ip_tmpok.txt|awk '{print $1}'|paste -s -d '|'`"
 echo $newip
 cd /opt/goagent-goagent-3.2.3-lin/local/
 sed -i "29s/[0-9].*/$newip/" proxy.ini

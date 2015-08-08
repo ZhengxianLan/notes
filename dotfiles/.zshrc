@@ -48,7 +48,7 @@ ZSH_THEME="cloud"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textvi ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby autojump textvi sudo )
+plugins=(git ruby autojump textvi sudo cp)
 
 source $ZSH/oh-my-zsh.sh
 
