@@ -37,4 +37,8 @@ alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias bi=' bundle install'
 alias pc='proxychains '
 alias xp='nohup /usr/lib/virtualbox/VirtualBox --comment xp --startvm 0fad95bf-bc4e-43fe-9518-ea9c8309512c --no-startvm-errormsgbox &>/tmp/xp.log &'
-source ~/.my_aliases
+
+if [ -f ~/.my_aliases ]; then
+  source ~/.my_aliases
+fi
+
