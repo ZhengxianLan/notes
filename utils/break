@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+while true;do
+  DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send "Go take a break."
+  sleep 600
+  DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send "Can work now."
+  mplayer ~/Music/夜曲\ -\ 周杰伦.mp3
+  sleep 2400
+done
