@@ -1,9 +1,39 @@
 #!/usr/bin/env bash
 
-while true;do
-  DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send "Go take a break."
-  sleep 600
-  DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send "Can work now."
-  mplayer ~/Music/夜曲\ -\ 周杰伦.mp3
-  sleep 2400
+music_dir=~/Music
+music_count=$( ls -1 ${music_dir}|wc -l )
+work_time=20
+rest_time=20
+
+show(){
+  DISPLAY=0:0 XAUTHORITY=~/.Xauthority notify-send "$1"
+}
+play(){
+  cur_time=${1}
+  trap "exit" INT # Without this,you can't stop by precc ctrl+c.Useful when test from terminal
+  while [ $((`date "+%s"`-${cur_time})) -lt ${rest_time}  ];do
+    random_idx=$(( ( RANDOM % ${music_count} )  + 1 ))
+    music_to_play=`ls -1 ${music_dir}|sed -n "${random_idx} p"`
+    mplayer ${music_dir}/"${music_to_play}" &>/tmp/mplayer.log
+  done
+}
+rest(){
+  play `date "+%s"` &
+  play_pid=$!
+  sleep ${rest_time}
+  mplayer_pid=`ps -ef|grep ${play_pid}|grep mplayer|awk '{print $2}'`
+  #kill ${play_pid} # kill play process,but his child process,i.e. mplayer process, is orphan,
+                  # and then is adapted by root process,in these case is login shell process
+  kill ${mplayer_pid}
+}
+#sleep 20
+show "Welcome !!!"
+
+while :;do
+  echo work time
+  show "Work time"
+  sleep ${work_time}
+  show "Take a rest will be  better."
+  echo rest time
+  rest
 done
