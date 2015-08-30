@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 playing="`cat /tmp/music_to_play`"
-rm ~/Music/${playing}
-pkill -f ${playing}
+rm ~/Music/"${playing}"
+pkill -f "${playing}"
