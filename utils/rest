@@ -13,7 +13,7 @@ play(){
   trap "exit" INT # Without this,you can't stop by precc ctrl+c.Useful when test from terminal
   while [ $((`date "+%s"`-${cur_time})) -lt ${rest_time}  ];do
     random_idx=$(( ( RANDOM % ${music_count} )  + 1 ))
-    music_to_play=`ls -1 ${music_dir}|sed -n "${random_idx} p"`
+    music_to_play="`ls -1 ${music_dir}|sed -n \"${random_idx} p\"`"
     show "${music_to_play}"
     echo "${music_to_play}"> /tmp/music_to_play
     mplayer ${music_dir}/"${music_to_play}" &>/tmp/mplayer.log
@@ -33,7 +33,7 @@ while :;do
   echo work time
   show "Work time"
   sleep ${work_time}
-  show "Take a rest will be  better."
+  show "Take a rest will be better."
   echo rest time
   rest
 done

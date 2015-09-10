@@ -36,9 +36,10 @@ alias getggip="nslookup www.google.com|grep Address|awk -F: '{ print $2}'|grep -
 alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias bi=' bundle install'
 alias pc='proxychains '
-alias xp='nohup /usr/lib/virtualbox/VirtualBox --comment xp --startvm 0fad95bf-bc4e-43fe-9518-ea9c8309512c --no-startvm-errormsgbox &>/tmp/xp.log &'
+alias xp='nohup  /usr/lib/virtualbox/VirtualBox --comment kp3 --startvm 83a32599-dc96-4ebf-98cf-c49a16021f68 --no-startvm-errormsgbox &>/tmp/xp.log &'
 alias mouse='xsetpointer -l | grep Pointer'
 if [ -f ~/.my_aliases ]; then
   source ~/.my_aliases
 fi
+
 
