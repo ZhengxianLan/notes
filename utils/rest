@@ -25,7 +25,6 @@ relax(){
   play_pid=$!
   sleep ${rest_time}
   mplayer_pid=`ps -ef|grep ${play_pid}|grep mplayer|awk '{print $2}'`
-  echo ${mplayer_pid}>/tmp/rest_mplayer_id
   kill ${mplayer_pid}
 }
 
@@ -35,12 +34,11 @@ clean(){
   do
     [ $$ -gt ${pid} ] && kill $pid
   done
-  echo 'alive'
+  kill `pgrep -fa mplayer|grep -i music|awk '{print $1}'`
 }
 
 begin(){
   clean
-  [ -e ‘/tmp/rest_mplayer_id’ ] && kill `</tmp/rest_mplayer_id`
   while [ ${flag} -eq 0 ];
   do
     echo work time
