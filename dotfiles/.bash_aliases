@@ -37,6 +37,7 @@ alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias bi=' bundle install'
 alias pc='proxychains '
 alias xp='nohup  /usr/lib/virtualbox/VirtualBox --comment kp3 --startvm 83a32599-dc96-4ebf-98cf-c49a16021f68 --no-startvm-errormsgbox &>/tmp/xp.log &'
+alias dp='nohup proxychains ~/.dropbox-dist/dropboxd &>/tmp/dropbox.log &'
 alias mouse='xsetpointer -l | grep Pointer'
 if [ -f ~/.my_aliases ]; then
   source ~/.my_aliases

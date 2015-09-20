@@ -332,3 +332,10 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 " substitute to lower case use \L,uppercase use \U , \u is capitalize
 " & is a handy backreference that refers to the complete text of the match
 ":%s/.*/\L&/g
+
+" date
+:nnoremap <F6> "=strftime("%c")<CR>P
+:inoremap <F6> <C-R>=strftime("%c")<CR>"
+" refresh
+:nnoremap <F5> :e!<CR>
+:inoremap <F5> <C-R>:e!<CR>
