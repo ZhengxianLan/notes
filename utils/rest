@@ -41,17 +41,11 @@ begin(){
   clean
   while [ ${flag} -eq 0 ];
   do
-    echo work time
     show "Work time"
     sleep ${work_time}
     show "Take a rest will be better."
-    echo rest time
     relax
   done
 }
 
-case $1 in
-  *)
-    begin &
-    ;;
-esac
+begin &
