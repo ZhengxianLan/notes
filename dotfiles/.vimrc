@@ -20,16 +20,15 @@ Plugin 'Align'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'hallison/vim-markdown'
 Plugin 'slim-template/vim-slim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'othree/html5.vim'
-Plugin 'junegunn/goyo.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'godlygeek/tabular'
 " `sudo apt-get install vim-nox` to use neocomplete.vim
@@ -227,17 +226,6 @@ if exists(":Tabularize")
   vmap <Leader>t: :Tabularize /:\zs<CR>
 endif
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
 
 "neo complete start
 "note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -334,8 +322,8 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 ":%s/.*/\L&/g
 
 " date
-:nnoremap <F6> "=strftime("%c")<CR>P
-:inoremap <F6> <C-R>=strftime("%c")<CR>"
+:nnoremap <leader>d "=strftime("%c")<CR>P
+:inoremap <leader>d <C-R>=strftime("%c")<CR>"
 " refresh
 :nnoremap <F5> :e!<CR>
 :inoremap <F5> <C-R>:e!<CR>

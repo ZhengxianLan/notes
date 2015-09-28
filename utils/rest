@@ -2,8 +2,8 @@
 
 music_dir=~/Music
 music_count=$( ls -1 ${music_dir}|wc -l )
-work_time=2400
-rest_time=600
+work_time=$((25*60))
+rest_time=$((5*60))
 flag=0
 
 show(){
