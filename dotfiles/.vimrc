@@ -118,19 +118,6 @@ nmap <A-up> :lprev<cr>
 nmap <A-down> :lnext<cr>
 nmap <A-right> :ll<cr>
 
-" Goyo
-function! s:goyo_before()
-  set nonumber
-endfunction
-
-function! s:goyo_after()
-  set number
-endfunction
-
-let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
-nmap <leader>g :Goyo<cr>
-
-
 set backspace=indent,eol,start
 " set mapleader
 let mapleader        = ";"
