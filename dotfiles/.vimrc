@@ -311,5 +311,5 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 :nnoremap <leader>d "=strftime("%c")<CR>P
 :inoremap <leader>d <C-R>=strftime("%c")<CR>"
 " refresh
-:nnoremap <F3> :e!<CR>
-:inoremap <F3> <C-R>:e!<CR>
+:nnoremap <F4> :e!<CR>
+:inoremap <F4> <C-R>:e!<CR>
