@@ -34,6 +34,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+Plugin 'tpope/vim-eunuch'
 
 " Close backup
 set nobackup
@@ -308,8 +309,8 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 ":%s/.*/\L&/g
 
 " date
-:nnoremap <leader>d "=strftime("%c")<CR>P
-:inoremap <leader>d <C-R>=strftime("%c")<CR>"
+nnoremap <leader>d "=strftime("%c")<CR>P
+inoremap <leader>d <C-R>=strftime("%c")<CR>"
 " refresh
-:nnoremap <F4> :e!<CR>
-:inoremap <F4> <C-R>:e!<CR>
+nnoremap <F4> :e!<CR>
+inoremap <F4> <C-R>:e!<CR>
