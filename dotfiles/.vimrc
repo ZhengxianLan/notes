@@ -35,6 +35,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'tpope/vim-eunuch'
+Plugin 'rking/ag.vim'
 
 " Close backup
 set nobackup
@@ -131,7 +132,8 @@ nnoremap <leader>x  :xa!<cr>
 nnoremap <leader>w  :w!<cr>
 nnoremap <leader>su :w !sudo tee %>/dev/null <cr>
 nnoremap <leader>q :q!<cr>
-nnoremap <leader>= gg=G
+"nnoremap <leader>= gg=G
+nnoremap <leader>= gg=G``
 
 
 map <F2> :NERDTreeToggle<CR>
@@ -314,3 +316,5 @@ inoremap <leader>d <C-R>=strftime("%c")<CR>"
 " refresh
 nnoremap <F4> :e!<CR>
 inoremap <F4> <C-R>:e!<CR>
+" ag.vim
+let g:ag_working_path_mode="r"
