@@ -15,6 +15,7 @@ play(){
   while [ $((`date "+%s"`-${cur_time})) -lt ${rest_time}  ];do
     random_idx=$(( ( RANDOM % ${music_count} )  + 1 ))
     music_to_play="`ls -1 ${music_dir}|sed -n \"${random_idx} p\"`"
+    [ "${music_to_play}" == "`</tmp/music_to_play`"] && continue
     show "${music_to_play}"
     echo "${music_to_play}"> /tmp/music_to_play
     mplayer ${music_dir}/"${music_to_play}" &>/tmp/mplayer.log

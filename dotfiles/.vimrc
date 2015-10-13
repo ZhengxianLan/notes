@@ -312,7 +312,7 @@ vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
 
 " date
 nnoremap <leader>d "=strftime("%c")<CR>P
-inoremap <leader>d <C-R>=strftime("%c")<CR>"
+inoremap <leader>d <C-R>=strftime("%c")<CR>
 " refresh
 nnoremap <F4> :e!<CR>
 inoremap <F4> <C-R>:e!<CR>

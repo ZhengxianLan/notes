@@ -39,10 +39,9 @@ alias pc='proxychains '
 alias xp='nohup  /usr/lib/virtualbox/VirtualBox --comment kp3 --startvm 83a32599-dc96-4ebf-98cf-c49a16021f68 --no-startvm-errormsgbox &>/tmp/xp.log &'
 alias dp='nohup proxychains ~/.dropbox-dist/dropboxd &>/tmp/dropbox.log &'
 alias mouse='xsetpointer -l | grep Pointer'
+alias sau='sudo apt-get update'
 alias rr='~/bin/rest &>/tmp/rest.log &'
 alias lndotfile=' ln -sf /home/lan/data/repo/notes/dotfiles/.* ~/'
 if [ -f ~/.my_aliases ]; then
   source ~/.my_aliases
 fi
-
-
