@@ -57,7 +57,7 @@ filetype plugin indent on
 set autoindent
 
 " Display extra whitespace
-" set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·,nbsp:·
 
 set wildignore+=tags
 set wildignore+=*/tmp/*
@@ -318,3 +318,11 @@ nnoremap <F4> :e!<CR>
 inoremap <F4> <C-R>:e!<CR>
 " ag.vim
 let g:ag_working_path_mode="r"
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+" Always use vertical diffs
+set diffopt+=vertical
+
