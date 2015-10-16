@@ -30,6 +30,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-eunuch'
 Plugin 'rking/ag.vim'
+Plugin 'JulesWang/css.vim'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'tpope/vim-endwise'
 
 " Close backup
 set nobackup
@@ -246,3 +249,13 @@ set splitright
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" vim rails syntax complete, try ctrl+x ctrl+u
+set completefunc=syntaxcomplete#Complete
+
+" for emmit
+let g:user_emmet_install_global = 0
+let g:user_emmet_mode='iv'
+autocmd FileType html,css,eruby EmmetInstall
+
+
