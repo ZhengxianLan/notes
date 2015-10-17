@@ -1,5 +1,5 @@
 [push]
-	default = simple
+	default = matching
 [alias]
 	lg = log --graph --pretty=format:'%Cgreen%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [color]
