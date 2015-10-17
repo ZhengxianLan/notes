@@ -33,6 +33,8 @@ Plugin 'rking/ag.vim'
 Plugin 'JulesWang/css.vim'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'tpope/vim-endwise'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " Close backup
 set nobackup
