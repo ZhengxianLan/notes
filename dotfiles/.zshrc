@@ -97,6 +97,9 @@ alias -s bz2='tar -xjvf'
 
 # should keep custom aliases in one file,easy to synchronize and backup
 source ~/.bash_aliases
+export JAVA_HOME='/home/lan/app/jdk1.7.0_03/'
+export M2_HOME='/home/lan/app/apache-maven-3.3.3/'
+export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH
 
 export RBENV_ROOT="${HOME}/.rbenv"
 if [ -d "${RBENV_ROOT}" ]; then
@@ -111,3 +114,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="/home/lan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[[ -s "/home/lan/.gvm/scripts/gvm" ]] && source "/home/lan/.gvm/scripts/gvm"

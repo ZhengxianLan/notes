@@ -40,8 +40,10 @@ alias xp='nohup  /usr/lib/virtualbox/VirtualBox --comment kp3 --startvm 83a32599
 alias dp='nohup proxychains ~/.dropbox-dist/dropboxd &>/tmp/dropbox.log &'
 alias mouse='xsetpointer -l | grep Pointer'
 alias sau='sudo apt-get update'
-alias rr='~/bin/rest &>/tmp/rest.log &'
+alias rr='pkill -f rest;~/bin/rest &>/tmp/rest.log &'
 alias lndotfile=' ln -sf /home/lan/data/repo/notes/dotfiles/.* ~/'
+alias gdoc='godoc -http=:8080'
+alias you-name="rename 's/(.*)-.*(.mp4)/\1\2/'"
 if [ -f ~/.my_aliases ]; then
   source ~/.my_aliases
 fi

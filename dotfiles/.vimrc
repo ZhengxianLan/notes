@@ -21,7 +21,11 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'tpope/vim-eunuch'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'Raimondi/delimitMate'
 
+Plugin 'jaxbot/browserlink.vim'
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 call vundle#end()
 
 filetype plugin indent on
@@ -39,6 +43,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smarttab
+set smartcase
 set incsearch
 set ruler
 set sm
@@ -147,3 +152,20 @@ autocmd FileType html,css,eruby EmmetInstall
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+set pastetoggle=<F3>
+" save a file in a directory that does not yet exist
+nmap <Leader>m :call mkdir(expand("%:p:h"), "p")<CR>
+
+
+" Navigator for split window
+nmap <c-k> <c-w>k
+nmap <c-j> <c-w>j
+nmap <c-l> <c-w>l
+nmap <c-h> <c-w>h
+
+" Just for browserlink.vim
+au InsertLeave *.css :BLReloadCSS
+
+"nnoremap <C-g> :!google-chrome http://localhost:8080/%:t<CR> " browser preview with ctrl-p
+"nnoremap <C-f> :!firefox %<CR> " browser preview with ctrl-o
