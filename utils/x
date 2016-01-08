@@ -50,6 +50,7 @@ init(){
     useMd5 former
     echo -en "\ninit complete!\t"
     useTime $start
+    echo 'initialize sucess! Please press enter.'
 }
 
 # We use md5sum instead of diff to differ two directories in order to save disk usage and also improve performance
@@ -105,6 +106,7 @@ gen(){
         echo "no file is updated"
     fi
     useTime $start
+    echo 'Generate diff files done.Please press `enter`'
 }
 
 # Delete the temporary directory

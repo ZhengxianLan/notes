@@ -118,3 +118,5 @@ parse_git_branch() {
 PS1="\w\$(parse_git_branch) $ "
 
 [[ -s "/home/lan/.gvm/scripts/gvm" ]] && source "/home/lan/.gvm/scripts/gvm"
+[ -e /usr/lib/go2/go2.sh ] && source /usr/lib/go2/go2.sh
+alias cd='go2 --cd'

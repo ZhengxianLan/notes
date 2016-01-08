@@ -116,3 +116,4 @@ export NVM_DIR="/home/lan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [[ -s "/home/lan/.gvm/scripts/gvm" ]] && source "/home/lan/.gvm/scripts/gvm"
+export GOPATH=$GOPATH:/home/lan/workspace/golang/demo1

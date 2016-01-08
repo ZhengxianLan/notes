@@ -26,6 +26,7 @@ Plugin 'Raimondi/delimitMate'
 
 Plugin 'jaxbot/browserlink.vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
+Plugin 'fatih/vim-go.git'
 call vundle#end()
 
 filetype plugin indent on
