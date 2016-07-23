@@ -1,0 +1,12 @@
+#!/bin/bash
+
+getFiles(){
+ :>list
+ curl   $1|grep -oE '".*mp4"'|tr -d '"'|while read line
+ do
+  echo ${1}$line>>list
+ done
+ cat list|xargs -n1 -P82 wget -ci
+}
+
+getFiles "the http server your files lie on"
