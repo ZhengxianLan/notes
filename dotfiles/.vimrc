@@ -27,6 +27,9 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'jaxbot/browserlink.vim'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'fatih/vim-go.git'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jbgutierrez/vim-babel'
+Plugin 'mattn/webapi-vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -170,3 +173,5 @@ au InsertLeave *.css :BLReloadCSS
 
 "nnoremap <C-g> :!google-chrome http://localhost:8080/%:t<CR> " browser preview with ctrl-p
 "nnoremap <C-f> :!firefox %<CR> " browser preview with ctrl-o
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files"

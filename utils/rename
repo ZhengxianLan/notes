@@ -10,6 +10,6 @@ shift
 echo re "+${re}+"
 for i in "$@"; do
 	nn="`echo ${i}|sed -r \"${re}\"`"
-	echo "rename --${i}-- to ++${nn}++"
+	echo "rename >>${i}<< to >>${nn}<<"
 	mv "${i}" "${nn}"
 done

@@ -44,6 +44,8 @@ alias rr='pkill -f rest;~/bin/rest &>/tmp/rest.log &'
 alias lndotfile=' ln -sf /home/lan/data/repo/notes/dotfiles/.* ~/'
 alias gdoc='godoc -http=:8080'
 alias you-name="rename 's/(.*)-.*(.mp4)/\1\2/'"
+alias hq="mv haoqicat.mp4 "
 if [ -f ~/.my_aliases ]; then
   source ~/.my_aliases
 fi
+
