@@ -1,0 +1,11 @@
+- *_proto是理解原型链的关键对象，每一个使用new操作符实例化的对象和函数对象都包含一个proto_属性，它是构造函数“prototype”属性的引用*，先看一段代码：
+```javascript
+function Foo() {}
+var foo = new Foo();
+alert(foo.__proto__ === F.prototype); // true，使用new运算符实例化对象的__proto__与构造函数Foo.prototype相等
+```
+在chrome控制台下能看到可访问的proto属性：
+
+`alert(Foo.prototype.__proto__ === Object.prototype); // true`
+为什么上面这段代码会输出true呢？因为Foo的“prototype”属性是一个对象，Foo.prototype是一个预创建的Object类型实例，所以也会包含一个proto属性，
+而所有Object类型实例的proto属性都会指向到Object.prototype，所以结果输出true。
