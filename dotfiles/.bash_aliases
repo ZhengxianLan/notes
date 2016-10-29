@@ -3,7 +3,10 @@ alias h='sudo halt -p'
 alias rb='sudo reboot'
 alias dt='cd ~/Desktop'
 alias l1='ls -1'
+# if you have installed dos2unix,just use it `dos2unix myfile.txt`
 # change file from dos format to unix format,ie. trip the tailing ^M
+# using sed: `sed -i 's/^M$//' input.txt` ,ref (http://www.cyberciti.biz/faq/howto-unix-linux-convert-dos-newlines-cr-lf-unix-text-format/)
+# if no perl installed,open file with vim,then type `:%s/\r/\r/g` ,ref:http://stackoverflow.com/a/1203971
 alias donix='perl -p -i -e "s/\s+$/\n/"'
 alias lhs="ls -lhS"
 alias ra="source ~/.zshrc"
