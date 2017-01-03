@@ -28,6 +28,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'Lokaltog/vim-easymotion'
 
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'janko-m/vim-test'
 
 Plugin 'kchmck/vim-coffee-script'
@@ -52,7 +53,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-vinegar'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'tpope/vim-obsession'
 

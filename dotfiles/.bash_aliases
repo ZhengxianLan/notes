@@ -35,19 +35,16 @@ alias ta='tmux attach -t'
 alias clsh='cat /dev/null > ~/.zsh_history'
 alias youtube-dl='youtube-dl --prefer-ffmpeg '
 alias bejs='bundle exec jekyll serve'
-alias getggip="nslookup www.google.com|grep Address|awk -F: '{ print $2}'|grep -v '8.8.8.8'"
 alias up='sudo apt-get update && sudo apt-get dist-upgrade -y'
 alias bi=' bundle install'
 alias pc='proxychains '
-alias xp='nohup  /usr/lib/virtualbox/VirtualBox --comment kp3 --startvm 83a32599-dc96-4ebf-98cf-c49a16021f68 --no-startvm-errormsgbox &>/tmp/xp.log &'
-alias dp='nohup proxychains ~/.dropbox-dist/dropboxd &>/tmp/dropbox.log &'
-alias mouse='xsetpointer -l | grep Pointer'
-alias sau='sudo apt-get update'
-alias rr='pkill -f rest;~/bin/rest &>/tmp/rest.log &'
-alias lndotfile=' ln -sf /home/lan/data/repo/notes/dotfiles/.* ~/'
 alias gdoc='godoc -http=:8080'
 alias you-name="rename 's/(.*)-.*(.mp4)/\1\2/'"
-alias hq="mv haoqicat.mp4 "
+alias ydl='youtube-dl -f22 --proxy=http://127.0.0.1:1080 '
+alias pgup='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgdown='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias bwg='ssh 45.78.37.57 -p 27573'
+alias redisup="redis-server /usr/local/etc/redis.conf"
 if [ -f ~/.my_aliases ]; then
   source ~/.my_aliases
 fi

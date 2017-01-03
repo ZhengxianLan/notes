@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="random"
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="sunaku"
+# ZSH_THEME="sunaku"
 ZSH_THEME="cloud"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -97,8 +97,7 @@ alias -s bz2='tar -xjvf'
 
 # should keep custom aliases in one file,easy to synchronize and backup
 source ~/.bash_aliases
-export JAVA_HOME='/home/lan/app/jdk1.7.0_03/'
-export M2_HOME='/home/lan/app/apache-maven-3.3.3/'
+export M2_HOME='/Users/lan/data/app/apache-maven-3.3.9'
 export GOPATH=$GOPATH:/home/lan/workspace/golang
 export PATH=$JAVA_HOME/bin:$M2_HOME/bin:$PATH:$GOPATH/bin
 
