@@ -1,0 +1,20 @@
+#!/usr/bin/env expect
+
+set ip [lindex $argv 0]
+set user [lindex $argv 1]
+set pass [lindex $argv 2]
+
+if { $argc != 3 } {
+  puts "Usage: expect 3 argvs: ip,user,pass."
+}
+
+set timeout 30
+spawn ssh $user@$ip
+expect {
+  "(yes/no)" { send "yes\r"; exp_continue }
+  "password:" { send "$pass\r"; }
+}
+
+expect "$user@*" { send "df -h\r" }
+expect "$user@*" { send "exit\r" }
+expect eof
