@@ -1,0 +1,9 @@
+#!/usr/bin/env expect
+
+spawn ssh-keygen 
+expect {
+  "*.ssh*" {send "\n\r";exp_continue}
+  "*(empty for no passphrase)" {send "\n\r";exp_continue}
+  "*again" {send "\n\r"}
+}
+expect eof

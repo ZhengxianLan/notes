@@ -1,0 +1,3 @@
+master username password
+slave1 username password
+slave2 username password
