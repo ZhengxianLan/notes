@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+# 这个脚本会在每个虚拟机都执行一遍
+# 1. 在本机生成密匙对
+# 2. 将公钥复制到其他主机上去
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cat $DIR/iplist.txt |while read line
 do
