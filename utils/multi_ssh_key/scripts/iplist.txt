@@ -1,3 +1,3 @@
-master username password
-slave1 username password
-slave2 username password
+master lan lan
+slave1 lan lan
+slave2 lan lan

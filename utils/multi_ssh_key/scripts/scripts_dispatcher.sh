@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
+IFS=$'\n'
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cat $DIR/iplist.txt |while read line
+#cat $DIR/iplist.txt |while read line
+for line in `cat $DIR/iplist.txt`
 do
   ip=`echo $line|awk '{print $1}'`
   user=`echo $line|awk '{print $2}'`
@@ -9,13 +11,11 @@ do
   localhost=$(hostname)
   # 如果是本机就不需要拷贝脚本，直接生成key并分发就好了
   if [ $ip == $localip -o $localhost == $ip ] ;then
-    bash $DIR/dispatch_key.sh
+    bash $DIR/key_dispatcher.sh
     echo 'skip '  $ip
     continue
   fi
-  echo $ip $user $pass
   # 拷贝脚本到各个vm上
-  #./expect_with_sh.exp $ip $user $pass
   /usr/bin/env expect <<EOF
   set timeout 30
   spawn scp -r $DIR $user@$ip:
@@ -26,6 +26,7 @@ do
   expect eof
 EOF
   # 远程执行 生成key并分发 的脚本
-  ssh $user@$ip "bash scripts/dispatch_key.sh" &
-  echo execute $ip
+  ssh $user@$ip "bash scripts/key_dispatcher.sh" 
+  # 分发之后，我们删除其他机子上的脚本
+  ssh $user@$ip "rm -fr scripts" 
 done
