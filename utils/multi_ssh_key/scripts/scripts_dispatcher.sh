@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 IFS=$'\n'
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+USERHOME="$( cd  && pwd )"
 #cat $DIR/iplist.txt |while read line
 for line in `cat $DIR/iplist.txt`
 do
@@ -26,7 +27,7 @@ do
   expect eof
 EOF
   # 远程执行 生成key并分发 的脚本
-  ssh $user@$ip "bash scripts/key_dispatcher.sh" 
+  ssh $user@$ip "bash scripts/key_dispatcher.sh"
   # 分发之后，我们删除其他机子上的脚本
-  ssh $user@$ip "rm -fr scripts" 
+  ssh $user@$ip "rm -fr scripts"
 done
