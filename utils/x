@@ -35,7 +35,7 @@ useMd5(){
     exclude=".*\.(git|idea|setting|svn).*"
     [ $# -eq 2 -a "$2" = "gen" ]&&newer=" -newer $tmp/target"||newer=''
     # Here,compare  mtime at first rather than md5sum. Md5sum is more expensive than newer,don't place it first
-    find "$target" $newer -regextype posix-egrep ! -regex "$exclude"  -type f -print0|xargs -0 md5sum >"$tmp"/"$1"
+    find "$target" $newer -regextype posix-egrep ! -regex "$exclude"  -type f -print0|xargs -0 md5sum|awk '$2 ~ /^*/ {print $1 " " substr($2,2)}' >"$tmp"/"$1"
 }
 
 # Create a md5sum file for target
