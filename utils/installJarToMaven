@@ -1,0 +1,37 @@
+# coding: utf-8
+import os
+try:
+    import xml.etree.cElementTree as ET
+except ImportError:
+    import xml.etree.ElementTree as ET
+
+'''
+mvn install:install-file -Dfile=path/to/hello-world-1.0.jar -DgroupId=com.thoughtworks.davenkin -DartifactId=hello-world -Dversion=1.0 -Dpackaging=jar
+'''
+
+# 命名空间
+# POM文件路径
+POM_PATH = "path_to_pom\pom.xml"
+NS = '{http://maven.apache.org/POM/4.0.0}'
+jarDir=u"jar_lib_dir"
+jarList=os.listdir(jarDir)
+cmd_template="mvn install:install-file -Dfile=%s/%s -DgroupId=%s -DartifactId=%s -Dversion=%s -Dpackaging=jar"
+
+tree = ET.parse(POM_PATH)
+root = tree.getroot()
+for child in root:
+    if ('properties') in child.tag:
+        props={}
+        for prop in child:
+            k=str(prop.tag).replace(NS,"")
+            v= prop.text
+            props[k]=v
+    if ('dependencies') in child.tag:
+        for dependency in child:
+            groupId = dependency.find(NS+'groupId').text
+            artifactId = dependency.find(NS + 'artifactId').text
+            version = dependency.find(NS + 'version').text
+            if '$' in version:
+                version = props.get(version[2:-1])
+            jarName = [ jar for jar in jarList if artifactId in jar ][0]
+            print cmd_template%(jarDir,jarName,groupId,artifactId,version)
