@@ -210,7 +210,7 @@ install_gost() {
     if [ ! -f "$GOST_BIN" ]; then
         wget -O /tmp/gost.gz "$GOST_URL"
         gzip -d /tmp/gost.gz
-        mv /tmp/gost-linux-amd64-2.11.1 "$GOST_BIN"
+        mv /tmp/gost "$GOST_BIN"
         chmod +x "$GOST_BIN"
     fi
 
