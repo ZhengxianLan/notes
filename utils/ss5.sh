@@ -202,6 +202,37 @@ EOF
 systemctl start sockd.service
 }
 
+GOST_URL="https://github.com/go-gost/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz"
+GOST_BIN="/usr/local/bin/gost"
+GOST_SERVICE="/etc/systemd/system/gost.service"
+
+install_gost() {
+    if [ ! -f "$GOST_BIN" ]; then
+        wget -O /tmp/gost.gz "$GOST_URL"
+        gzip -d /tmp/gost.gz
+        mv /tmp/gost-linux-amd64-2.11.1 "$GOST_BIN"
+        chmod +x "$GOST_BIN"
+    fi
+
+    cat <<EOF > $GOST_SERVICE
+[Unit]
+Description=Gost HTTP Proxy Service
+After=network.target nss-lookup.target
+
+[Service]
+User=nobody
+ExecStart=$GOST_BIN -L=":${port}?auth=${user}:${passwd}" -F="socks5://${user}:${passwd}@127.0.0.1:${port}"
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+    systemctl daemon-reload
+    systemctl enable gost.service &> /dev/null
+    systemctl restart gost.service
+}
+
 connect() {
 	IP=$(curl -4  http://ip.sb)
 	echo "IP: $IP"
@@ -226,6 +257,7 @@ install() {
 	user_set
 	install_ss5
 	config_install
+	install_gost
 	connect
 	systemctl restart sockd.service
 	judge "安装 ss5 "
@@ -236,6 +268,9 @@ del_ss5() {
 	systemctl stop sockd.service
 	rm -rf /usr/local/bin/socks
 	rm -rf /etc/systemd/system/sockd.service
+	systemctl stop gost.service
+	rm -rf $GOST_BIN
+	rm -rf $GOST_SERVICE
 	systemctl daemon-reload
 	rm -rf /etc/socks
 	judge "删除 ss5 "
