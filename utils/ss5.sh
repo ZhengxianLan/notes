@@ -202,7 +202,7 @@ EOF
 systemctl start sockd.service
 }
 
-GOST_URL="https://github.com/go-gost/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz"
+GOST_URL="https://github.com/ginuerzh/gost/releases/download/v2.11.5/gost-linux-amd64-2.11.5.gz"
 GOST_BIN="/usr/local/bin/gost"
 GOST_SERVICE="/etc/systemd/system/gost.service"
 
